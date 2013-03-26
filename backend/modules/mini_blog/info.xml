@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<name>mini_blog</name>
+	<version>1.1.0</version>
+	<requirements>
+		<minimum_version>3.5.0</minimum_version>
+	</requirements>
+	<description>
+		<![CDATA[
+			This is a mini blog system used to demonstrate how to create a module.
+		]]>
+	</description>
+	<authors>
+		<author>
+			<name><![CDATA[Jelmer Snoeck]]></name>
+			<url><![CDATA[http://www.jelmersnoeck.com]]></url>
+		</author>
+	</authors>
+	<events>
+		<event application="backend" name="after_add"><![CDATA[Triggered when a post is added.]]></event>
+		<event application="backend" name="after_delete"><![CDATA[Triggered when a post is deleted.]]></event>
+		<event application="backend" name="after_edit"><![CDATA[Triggered when a post is edited.]]></event>
+	</events>
+	<cronjobs>
+		<cronjob minute="42" hour="*" day-of-month="*" month="*" day-of-week="*" action="send_most_awesome"><![CDATA[Sends the most awesome posts to the administrator.]]></cronjob>
+	</cronjobs>
+</module>

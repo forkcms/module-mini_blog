@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<locale>
+  <backend>
+  	<mini_blog>
+      <item type="label" name="Introduction">
+        <translation language="nl"><![CDATA[introductie]]></translation>
+        <translation language="en"><![CDATA[introduction]]></translation>
+      </item>
+      <item type="label" name="NotYetPublished">
+        <translation language="nl"><![CDATA[nog niet gepubliceerd]]></translation>
+        <translation language="en"><![CDATA[not yet published]]></translation>
+      </item>
+  	</mini_blog>
+    <core>
+      <item type="label" name="MiniBlog">
+        <translation language="nl"><![CDATA[mini blog]]></translation>
+        <translation language="en"><![CDATA[mini blog]]></translation>
+      </item>
+    </core>
+  </backend>
+  <frontend>
+    <core>
+      <item type="label" name="IThinkThisIsAwesome">
+        <translation language="nl"><![CDATA[dit is awesome!]]></translation>
+        <translation language="en"><![CDATA[this is awesome!]]></translation>
+      </item>
+      <item type="label" name="PeopleThinkThisPostIsAwesome">
+        <translation language="nl"><![CDATA[mensen vinden dit awesome!]]></translation>
+        <translation language="en"><![CDATA[people think this is awesome!]]></translation>
+      </item>
+    </core>
+  </frontend>
+</locale>
