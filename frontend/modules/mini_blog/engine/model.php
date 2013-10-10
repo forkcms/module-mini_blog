@@ -110,7 +110,7 @@ class FrontendMiniBlogModel implements FrontendTagsInterface
 	 */
 	public static function getAllCount()
 	{
-		return (int) FrontendModel::getContainer()->get('database'))->getVar(
+		return (int) FrontendModel::getContainer()->get('database')->getVar(
 			'SELECT COUNT(i.id) AS count
 			 FROM mini_blog AS i
 			 WHERE i.language = ? AND i.publish = ?',
