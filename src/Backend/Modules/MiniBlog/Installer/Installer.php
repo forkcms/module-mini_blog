@@ -30,7 +30,7 @@ class Installer extends ModuleInstaller
         $this->setActionRights(1, 'MiniBlog', 'Delete');
 
         $this->insertExtra('MiniBlog', 'block', 'MiniBlog');
-        $this->insertExtra('MiniBlog', 'widget', 'RecentPosts', 'recent_posts');
+        $this->insertExtra('MiniBlog', 'widget', 'RecentPosts', 'recentposts');
 
         $navigationModulesId = $this->setNavigation(null, 'Modules');
         $this->setNavigation($navigationModulesId, 'MiniBlog', 'MiniBlog/Index', array('MiniBlog/Add', 'MiniBlog/Edit'));
