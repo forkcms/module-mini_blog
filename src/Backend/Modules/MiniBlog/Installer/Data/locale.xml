@@ -24,6 +24,10 @@
                 <translation language="nl"><![CDATA[MiniBlog mededeling: awesomeness top 5]]></translation>
                 <translation language="en"><![CDATA[MiniBlog notification: awesomeness top 5]]></translation>
             </item>
+            <item type="label" name="RecentPosts">
+                <translation language="nl"><![CDATA[recente posts]]></translation>
+                <translation language="en"><![CDATA[recent posts]]></translation>
+            </item>
         </Core>
     </Backend>
     <Frontend>
