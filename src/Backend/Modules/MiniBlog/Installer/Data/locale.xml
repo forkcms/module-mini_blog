@@ -1,33 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <locale>
-  <Backend>
-  	<MiniBlog>
-      <item type="label" name="Introduction">
-        <translation language="nl"><![CDATA[introductie]]></translation>
-        <translation language="en"><![CDATA[introduction]]></translation>
-      </item>
-      <item type="label" name="NotYetPublished">
-        <translation language="nl"><![CDATA[nog niet gepubliceerd]]></translation>
-        <translation language="en"><![CDATA[not yet published]]></translation>
-      </item>
-  	</MiniBlog>
-    <Core>
-      <item type="label" name="MiniBlog">
-        <translation language="nl"><![CDATA[mini blog]]></translation>
-        <translation language="en"><![CDATA[mini blog]]></translation>
-      </item>
-    </Core>
-  </Backend>
-  <Frontend>
-    <Core>
-      <item type="label" name="IThinkThisIsAwesome">
-        <translation language="nl"><![CDATA[dit is awesome!]]></translation>
-        <translation language="en"><![CDATA[this is awesome!]]></translation>
-      </item>
-      <item type="label" name="PeopleThinkThisPostIsAwesome">
-        <translation language="nl"><![CDATA[mensen vinden dit awesome!]]></translation>
-        <translation language="en"><![CDATA[people think this is awesome!]]></translation>
-      </item>
-    </Core>
-  </Frontend>
+    <Backend>
+        <MiniBlog>
+            <item type="label" name="Introduction">
+                <translation language="nl"><![CDATA[introductie]]></translation>
+                <translation language="en"><![CDATA[introduction]]></translation>
+            </item>
+            <item type="label" name="NotYetPublished">
+                <translation language="nl"><![CDATA[nog niet gepubliceerd]]></translation>
+                <translation language="en"><![CDATA[not yet published]]></translation>
+            </item>
+        </MiniBlog>
+        <Core>
+            <item type="label" name="MiniBlog">
+                <translation language="nl"><![CDATA[mini blog]]></translation>
+                <translation language="en"><![CDATA[mini blog]]></translation>
+            </item>
+            <item type="message" name="AwesomenessTopFive">
+                <translation language="nl"><![CDATA[awesomeness top vijf]]></translation>
+                <translation language="en"><![CDATA[awesomeness top five]]></translation>
+            </item>
+            <item type="message" name="MiniBlogNotificationAwesomeness">
+                <translation language="nl"><![CDATA[MiniBlog mededeling: awesomeness top 5]]></translation>
+                <translation language="en"><![CDATA[MiniBlog notification: awesomeness top 5]]></translation>
+            </item>
+        </Core>
+    </Backend>
+    <Frontend>
+        <Core>
+            <item type="label" name="IThinkThisIsAwesome">
+                <translation language="nl"><![CDATA[dit is awesome!]]></translation>
+                <translation language="en"><![CDATA[this is awesome!]]></translation>
+            </item>
+            <item type="label" name="PeopleThinkThisPostIsAwesome">
+                <translation language="nl"><![CDATA[mensen vinden dit awesome!]]></translation>
+                <translation language="en"><![CDATA[people think this is awesome!]]></translation>
+            </item>
+        </Core>
+    </Frontend>
 </locale>
