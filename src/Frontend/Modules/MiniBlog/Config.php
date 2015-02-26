@@ -5,7 +5,7 @@ namespace Frontend\Modules\MiniBlog;
 use Frontend\Core\Engine\Base\Config as FrontendBaseConfig;
 
 /**
- * This is the configuration-object
+ * This is the configuration-object.
  *
  * @author Tijs Verkoyen <tijs@sumocoders.be>
  * @author Lander Vanderstraeten <lander.vanderstraeten@wijs.be>
@@ -13,17 +13,16 @@ use Frontend\Core\Engine\Base\Config as FrontendBaseConfig;
 final class Config extends FrontendBaseConfig
 {
     /**
-     * The default action
+     * The default action.
      *
-     * @var    string
+     * @var string
      */
     protected $defaultAction = 'index';
 
-
     /**
-     * The disabled actions
+     * The disabled actions.
      *
-     * @var    array
+     * @var array
      */
     protected $disabledActions = array();
 }

@@ -11,28 +11,28 @@ use Backend\Core\Installer\ModuleInstaller;
 class Installer extends ModuleInstaller
 {
     /**
-     * Install the module
+     * Install the module.
      */
     public function install()
     {
-        $this->importSQL(dirname(__FILE__) . '/Data/install.sql');
+        $this->importSQL(dirname(__FILE__).'/Data/install.sql');
 
         $this->addModule('MiniBlog');
 
-        $this->importLocale(dirname(__FILE__) . '/Data/locale.xml');
+        $this->importLocale(dirname(__FILE__).'/Data/locale.xml');
 
-        $this->makeSearchable('MiniBlog');
-        $this->setModuleRights(1, 'MiniBlog');
+        $this->makeSearchable($this->getModule());
+        $this->setModuleRights(1, $this->getModule());
 
-        $this->setActionRights(1, 'MiniBlog', 'Index');
-        $this->setActionRights(1, 'MiniBlog', 'Add');
-        $this->setActionRights(1, 'MiniBlog', 'Edit');
-        $this->setActionRights(1, 'MiniBlog', 'Delete');
+        $this->setActionRights(1, $this->getModule(), 'Index');
+        $this->setActionRights(1, $this->getModule(), 'Add');
+        $this->setActionRights(1, $this->getModule(), 'Edit');
+        $this->setActionRights(1, $this->getModule(), 'Delete');
 
-        $this->insertExtra('MiniBlog', 'block', 'MiniBlog');
-        $this->insertExtra('MiniBlog', 'widget', 'RecentPosts', 'recentposts');
+        $this->insertExtra($this->getModule(), 'block', 'MiniBlog');
+        $this->insertExtra($this->getModule(), 'widget', 'RecentPosts', 'recentposts');
 
         $navigationModulesId = $this->setNavigation(null, 'Modules');
-        $this->setNavigation($navigationModulesId, 'MiniBlog', 'MiniBlog/Index', array('MiniBlog/Add', 'MiniBlog/Edit'));
+        $this->setNavigation($navigationModulesId, $this->getModule(), 'MiniBlog/Index', array('MiniBlog/Add', 'MiniBlog/Edit'));
     }
 }

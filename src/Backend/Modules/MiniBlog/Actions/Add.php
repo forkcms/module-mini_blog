@@ -21,7 +21,7 @@ use Backend\Modules\MiniBlog\Engine\Model as BackendMiniBlogModel;
 class Add extends BackendBaseActionAdd
 {
     /**
-     * Execute the action
+     * Execute the action.
      */
     public function execute()
     {
@@ -35,7 +35,7 @@ class Add extends BackendBaseActionAdd
     }
 
     /**
-     * Load the form
+     * Load the form.
      */
     private function loadForm()
     {
@@ -50,7 +50,7 @@ class Add extends BackendBaseActionAdd
     }
 
     /**
-     * Validate the form
+     * Validate the form.
      */
     private function validateForm()
     {
@@ -87,7 +87,7 @@ class Add extends BackendBaseActionAdd
                 BackendModel::triggerEvent('mini_blog', 'after_add', $item);
 
                 // everything is saved, so redirect to the overview
-                $this->redirect(BackendModel::createURLForAction('index') . '&report=added&var=' . urlencode($item['title']) . '&highlight=row-' . $item['id']);
+                $this->redirect(BackendModel::createURLForAction('Index').'&report=added&var='.urlencode($item['title']).'&highlight=row-'.$item['id']);
             }
         }
     }

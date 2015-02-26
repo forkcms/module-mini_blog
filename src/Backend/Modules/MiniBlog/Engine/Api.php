@@ -14,8 +14,8 @@ class Api
 {
     public static function showTopAwesome()
     {
-        $number = (int)\SpoonFilter::getGetValue('number', null, 10);
-        $days = (int)\SpoonFilter::getGetValue('days', null, 7);
+        $number = (int) \SpoonFilter::getGetValue('number', null, 10);
+        $days = (int) \SpoonFilter::getGetValue('days', null, 7);
         BaseAPI::output('200', BackendMiniBlogModel::getTopAwesome($number, $days));
     }
 }

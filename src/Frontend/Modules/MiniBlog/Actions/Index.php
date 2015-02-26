@@ -8,7 +8,7 @@ use Frontend\Core\Engine\Model as FrontendModel;
 use Frontend\Modules\MiniBlog\Engine\Model as FrontendMiniBlogModel;
 
 /**
- * This is the overview-action
+ * This is the overview-action.
  *
  * @author Tijs Verkoyen <tijs@sumocoders.be>
  * @author Davy Hellemans <davy.hellemans@netlash.com>
@@ -17,9 +17,9 @@ use Frontend\Modules\MiniBlog\Engine\Model as FrontendMiniBlogModel;
 class Index extends FrontendBaseBlock
 {
     /**
-     * The articles
+     * The articles.
      *
-     * @var    array
+     * @var array
      */
     private $items;
 
@@ -27,18 +27,18 @@ class Index extends FrontendBaseBlock
      * The pagination array
      * It will hold all needed parameters, some of them need initialization.
      *
-     * @var    array
+     * @var array
      */
     protected $pagination = array(
         'limit' => 10,
         'offset' => 0,
         'requested_page' => 1,
         'num_items' => null,
-        'num_pages' => null
+        'num_pages' => null,
     );
 
     /**
-     * Execute the extra
+     * Execute the extra.
      */
     public function execute()
     {
@@ -49,7 +49,7 @@ class Index extends FrontendBaseBlock
     }
 
     /**
-     * Load the data, don't forget to validate the incoming data
+     * Load the data, don't forget to validate the incoming data.
      */
     private function getData()
     {
@@ -59,18 +59,22 @@ class Index extends FrontendBaseBlock
         $this->pagination['url'] = FrontendNavigation::getURLForBlock('mini_blog');
         $this->pagination['limit'] = FrontendModel::getModuleSetting('mini_blog', 'overview_num_items', 10);
         $this->pagination['num_items'] = FrontendMiniBlogModel::getAllCount();
-        $this->pagination['num_pages'] = (int)ceil($this->pagination['num_items'] / $this->pagination['limit']);
+        $this->pagination['num_pages'] = (int) ceil($this->pagination['num_items'] / $this->pagination['limit']);
         $this->pagination['requested_page'] = $requestedPage;
         $this->pagination['offset'] = ($this->pagination['requested_page'] * $this->pagination['limit']) - $this->pagination['limit'];
 
-        if ($this->pagination['num_pages'] == 0) $this->pagination['num_pages'] = 1;
-        if ($requestedPage > $this->pagination['num_pages'] || $requestedPage < 1) $this->redirect(FrontendNavigation::getURL(404));
+        if ($this->pagination['num_pages'] == 0) {
+            $this->pagination['num_pages'] = 1;
+        }
+        if ($requestedPage > $this->pagination['num_pages'] || $requestedPage < 1) {
+            $this->redirect(FrontendNavigation::getURL(404));
+        }
 
         $this->items = FrontendMiniBlogModel::getAll($this->pagination['limit'], $this->pagination['offset']);
     }
 
     /**
-     * Parse the data into the template
+     * Parse the data into the template.
      */
     protected function parse()
     {

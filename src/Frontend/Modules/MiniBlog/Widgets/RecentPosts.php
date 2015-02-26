@@ -2,7 +2,7 @@
 
 namespace Frontend\Modules\MiniBlog\Widgets;
 
-/**
+/*
  * This is a widget with recent blogarticles
  *
  * @author Tijs Verkoyen <tijs@sumocoders.be>
@@ -16,7 +16,7 @@ use Frontend\Modules\MiniBlog\Engine\Model as FrontendMiniBlogModel;
 class RecentPosts extends FrontendBaseWidget
 {
     /**
-     * Execute the extra
+     * Execute the extra.
      */
     public function execute()
     {
@@ -26,7 +26,7 @@ class RecentPosts extends FrontendBaseWidget
     }
 
     /**
-     * Parse
+     * Parse.
      */
     private function parse()
     {

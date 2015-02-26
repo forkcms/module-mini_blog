@@ -23,7 +23,7 @@ use Backend\Modules\MiniBlog\Engine\Model as BackendMiniBlogModel;
 class Edit extends BackendBaseActionEdit
 {
     /**
-     * Execute the action
+     * Execute the action.
      */
     public function execute()
     {
@@ -39,22 +39,26 @@ class Edit extends BackendBaseActionEdit
 
             $this->parse();
             $this->display();
-        } else $this->redirect(BackendModel::createURLForAction('index') . '&error=non-existing');
+        } else {
+            $this->redirect(BackendModel::createURLForAction('Index').'&error=non-existing');
+        }
     }
 
     /**
-     * Get the data
+     * Get the data.
      */
     private function getData()
     {
-        $this->record = (array)BackendMiniBlogModel::get($this->id);
+        $this->record = (array) BackendMiniBlogModel::get($this->id);
 
         // no item found, redirect to index
-        if (empty($this->record)) $this->redirect(BackendModel::createURLForAction('index') . '&error=non-existing');
+        if (empty($this->record)) {
+            $this->redirect(BackendModel::createURLForAction('Index').'&error=non-existing');
+        }
     }
 
     /**
-     * Load the form
+     * Load the form.
      */
     private function loadForm()
     {
@@ -70,7 +74,7 @@ class Edit extends BackendBaseActionEdit
     }
 
     /**
-     * Parse the form
+     * Parse the form.
      */
     protected function parse()
     {
@@ -78,11 +82,11 @@ class Edit extends BackendBaseActionEdit
 
         // assign this variable so it can be used in the template
         $this->tpl->assign('item', $this->record);
-        $this->tpl->assign('detailURL', SITE_URL . BackendModel::getURLForBlock($this->URL->getModule(), 'detail') . '/' . $this->record['url']);
+        $this->tpl->assign('DetailURL', SITE_URL.BackendModel::getURLForBlock($this->URL->getModule(), 'detail').'/'.$this->record['url']);
     }
 
     /**
-     * Validate the form
+     * Validate the form.
      */
     private function validateForm()
     {
@@ -118,7 +122,7 @@ class Edit extends BackendBaseActionEdit
                 BackendModel::triggerEvent('mini_blog', 'after_edit', $item);
 
                 // everything is saved, so redirect to the overview
-                $this->redirect(BackendModel::createURLForAction('index') . '&report=added&var=' . urlencode($item['title']) . '&highlight=row-' . $item['id']);
+                $this->redirect(BackendModel::createURLForAction('Index').'&report=added&var='.urlencode($item['title']).'&highlight=row-'.$item['id']);
             }
         }
     }

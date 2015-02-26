@@ -10,7 +10,7 @@ use Backend\Modules\MiniBlog\Engine\Model as BackendMiniBlogModel;
 use Backend\Core\Engine\DataGridFunctions as BackendDataGridFunctions;
 
 /**
- * This is the index-action (default), it will display the overview of miniblog posts
+ * This is the index-action (default), it will display the overview of miniblog posts.
  *
  * @author Dave Lens <dave.lens@netlash.com>
  * @author Davy Hellemans <davy.hellemans@netlash.com>
@@ -21,21 +21,21 @@ use Backend\Core\Engine\DataGridFunctions as BackendDataGridFunctions;
 class Index extends BackendBaseActionIndex
 {
     /**
-     * datagrid with published items
+     * datagrid with published items.
      *
-     * @var    SpoonDataGrid
+     * @var SpoonDataGrid
      */
     private $dgPublished;
 
     /**
-     * datagrid with unpublished items
+     * datagrid with unpublished items.
      *
-     * @var    SpoonDataGrid
+     * @var SpoonDataGrid
      */
     private $dgNotYetPublished;
 
     /**
-     * Execute the action
+     * Execute the action.
      */
     public function execute()
     {
@@ -49,7 +49,7 @@ class Index extends BackendBaseActionIndex
     }
 
     /**
-     * Loads the datagrid with the post
+     * Loads the datagrid with the post.
      *
      * @param string $published 'Y' or 'N'.
      */
@@ -66,17 +66,17 @@ class Index extends BackendBaseActionIndex
         $dg->setSortParameter('desc');
 
         // set colum URLs
-        $dg->setColumnURL('title', BackendModel::createURLForAction('edit') . '&amp;id=[id]');
+        $dg->setColumnURL('title', BackendModel::createURLForAction('Edit').'&amp;id=[id]');
 
         // set column functions
         $dg->setColumnFunction(array(new BackendDataGridFunctions(), 'getLongDate'), array('[created]'), 'created', true);
         $dg->setColumnFunction(array(new BackendDataGridFunctions(), 'getUser'), array('[user_id]'), 'user_id', true);
 
         // add edit column
-        $dg->addColumn('edit', null, BL::lbl('Edit'), BackendModel::createURLForAction('edit') . '&amp;id=[id]', BL::lbl('Edit'));
+        $dg->addColumn('edit', null, BL::lbl('Edit'), BackendModel::createURLForAction('Edit').'&amp;id=[id]', BL::lbl('Edit'));
 
         // add delete column
-        $dg->addColumn('delete', null, BL::lbl('Delete'), BackendModel::createURLForAction('delete') . '&amp;id=[id]', BL::lbl('Delete'));
+        $dg->addColumn('delete', null, BL::lbl('Delete'), BackendModel::createURLForAction('Delete').'&amp;id=[id]', BL::lbl('Delete'));
 
         // our JS needs to know an id, so we can highlight it
         $dg->setRowAttributes(array('id' => 'row-[id]'));
@@ -85,14 +85,20 @@ class Index extends BackendBaseActionIndex
     }
 
     /**
-     * Parse all datagrids
+     * Parse all datagrids.
      */
     protected function parse()
     {
         // parse the datagrid for all blogposts
-        if ($this->dgPublished->getNumResults() != 0) $this->tpl->assign('dgPublished', $this->dgPublished->getContent());
-        if ($this->dgNotYetPublished->getNumResults() != 0) $this->tpl->assign('dgNotYetPublished', $this->dgNotYetPublished->getContent());
+        if ($this->dgPublished->getNumResults() != 0) {
+            $this->tpl->assign('dgPublished', $this->dgPublished->getContent());
+        }
+        if ($this->dgNotYetPublished->getNumResults() != 0) {
+            $this->tpl->assign('dgNotYetPublished', $this->dgNotYetPublished->getContent());
+        }
 
-        if ($this->dgNotYetPublished->getNumResults() == 0 && $this->dgPublished->getNumResults() == 0) $this->tpl->assign('noItems', 1);
+        if ($this->dgNotYetPublished->getNumResults() == 0 && $this->dgPublished->getNumResults() == 0) {
+            $this->tpl->assign('noItems', 1);
+        }
     }
 }
